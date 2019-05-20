@@ -1,0 +1,55 @@
+package com.udemy.controlflow;
+
+public class Switch {
+
+	public static void main(String[] args) {
+		/*char value = 'A';
+		switch (value) {
+		case 'A':
+			System.out.println("Value is "+value);
+			break;
+		case 'B':
+			System.out.println("Value is "+value);
+			break;
+		case 'C':case 'D': case 'E':
+			System.out.println("Value is C or D or E");
+			System.out.println("Actual value is "+value);
+			break;
+		default:
+			System.out.println("Case not found for "+value);
+			break;
+		}*/
+		printDayOfTheWeek(11);
+	}
+	
+	public static void printDayOfTheWeek(int day) {
+		switch (day) {
+		case 0:
+			System.out.println("Sunday");
+			break;
+		case 1:
+			System.out.println("Monday");
+			break;
+		case 2:
+			System.out.println("Tuesday");
+			break;
+		case 3:
+			System.out.println("Wednesday");
+			break;
+		case 4:
+			System.out.println("Thursday");
+			break;
+		case 5:
+			System.out.println("Friday");
+			break;
+		case 6:
+			System.out.println("Saturday");
+			break;
+
+		default:
+			System.out.println("Invalid Day");
+			break;
+		}
+	}
+
+}
