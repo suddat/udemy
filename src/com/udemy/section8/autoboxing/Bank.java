@@ -21,15 +21,15 @@ public class Bank {
 	 */
 
 	public void addBranch(String name) {
-		boolean notPresent = checkBranch(name);
-		if (notPresent) {
-			Branch branch = Branch
-					.createBranch(name);
+		int notPresent = checkBranch(name);
+		if (notPresent < 0) {
+			Branch branch = Branch.createBranch(
+					name.toLowerCase());
 			this.branches.add(branch);
 		}
 	}
 
-	private boolean checkBranch(String name) {
+	private int checkBranch(String name) {
 		for (int i = 0; i < this.branches
 				.size(); i++) {
 			if (this.branches.get(i)
@@ -37,10 +37,10 @@ public class Bank {
 				System.out.println(
 						"Branch Found at " + i
 								+ " position");
-				return false;
+				return i;
 			}
 		}
-		return true;
+		return -1;
 	}
 
 	public void showBranches() {
@@ -54,6 +54,20 @@ public class Bank {
 								.getName());
 			}
 		}
+	}
+
+	public void addBranchCustomer(
+			String branchName,
+			String customerName, Double amount) {
+		int branchIndex = checkBranch(branchName);
+		if (branchIndex >= 0) {
+			Customer customer = Customer
+					.createCustomer(customerName,
+							amount);
+			this.branches.get(branchIndex)
+					.addCustomer(customer);
+		}
+
 	}
 
 	@Override
