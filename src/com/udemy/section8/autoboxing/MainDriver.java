@@ -15,28 +15,53 @@ public class MainDriver {
 		 * "Manyata Tech Park"); myBank.addBranch(branch); System.out.println(myBank);
 		 */
 		boolean quit = false;
-		scanner.nextLine();
+		// scanner.nextLine();
+		printActions();
 		while (!quit) {
 			System.out.println(
 					"Enter Your Choice: ");
-			scanner.nextLine();
+			// scanner.nextLine();
 			int choice = scanner.nextInt();
 			switch (choice) {
 			case 0:
 				quit = true;
+				System.out.println("Good Bye!!");
 				break;
 			case 1:
 				addBankBranch();
+				break;
+			case 2:
+				showBankBranch();
+				break;
+
+			case 6:
+				printActions();
 				break;
 			default:
 				break;
 			}
 		}
 	}
-	
+
 	public static void addBankBranch() {
-		System.out.println("Enter Branch Name to be added :");
-		String name = scanner.nextLine();
+		System.out.println(
+				"Enter Branch Name to be added :");
+		String name = scanner.next();
+		System.out.println(name);
+		myBank.addBranch(name);
+	}
+
+	public static void showBankBranch() {
+		myBank.showBranches();
+	}
+
+	public static void printActions() {
+		System.out.println(
+				"Choose an option from below: ");
+		System.out.println("0. Quit\n"
+				+ "1. Add Branch\n"
+				+ "2. Show Branch\n"
+				+ "6. show different options\n");
 	}
 
 }
