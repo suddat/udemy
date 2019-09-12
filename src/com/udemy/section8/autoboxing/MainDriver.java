@@ -35,7 +35,8 @@ public class MainDriver {
 	}
 	
 	public static void addBankBranch() {
-		
+		System.out.println("Enter Branch Name to be added :");
+		String name = scanner.nextLine();
 	}
 
 }
