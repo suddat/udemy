@@ -1,4 +1,4 @@
-package com.udemy.section8.autoboxing;
+package com.udemy.section8.autoboxing.solution;
 
 import java.util.ArrayList;
 
@@ -6,7 +6,7 @@ public class Customer {
 	private String name;
 	private ArrayList<Double> amount;
 
-	private Customer(String name, Double amount) {
+	public Customer(String name, Double amount) {
 		this.name = name;
 		this.amount = new ArrayList<>();
 		addAmount(amount);
@@ -28,10 +28,10 @@ public class Customer {
 		this.amount.add(amount);
 	}
 
-	public static Customer createCustomer(
+	/*public static Customer createCustomer(
 			String name, Double amount) {
 		return new Customer(name, amount);
-	}
+	}*/
 
 	@Override
 	public String toString() {

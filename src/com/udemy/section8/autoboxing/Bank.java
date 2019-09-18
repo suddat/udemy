@@ -32,11 +32,8 @@ public class Bank {
 	private int checkBranch(String name) {
 		for (int i = 0; i < this.branches
 				.size(); i++) {
-			if (this.branches.get(i)
+			if (this.branches.get(i).getName()
 					.equals(name)) {
-				System.out.println(
-						"Branch Found at " + i
-								+ " position");
 				return i;
 			}
 		}
@@ -60,14 +57,31 @@ public class Bank {
 			String branchName,
 			String customerName, Double amount) {
 		int branchIndex = checkBranch(branchName);
+		//System.out.println("branchIndex--->"+branchIndex);
 		if (branchIndex >= 0) {
 			Customer customer = Customer
 					.createCustomer(customerName,
 							amount);
+			//System.out.println("customer : : "+customer);
 			this.branches.get(branchIndex)
 					.addCustomer(customer);
 		}
 
+	}
+	
+	public void showBranchCustomer(String branchName) {
+		int branchIndex = checkBranch(branchName);
+		System.out.println("Name\tAmount");
+		for(int i=0;i < this.branches.get(branchIndex).getCustomers().size();i++ ) {
+			System.out.println((i+1)+". "
+			+this.branches.get(branchIndex).getCustomers().get(i).getName()+"\t"
+			+this.branches.get(branchIndex).getCustomers().get(i).getAmount()
+					);
+		}
+	}
+	
+	public void addCustomerMoney(String customerName, double amount) {
+		
 	}
 
 	@Override

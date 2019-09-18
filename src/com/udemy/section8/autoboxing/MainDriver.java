@@ -36,7 +36,12 @@ public class MainDriver {
 			case 3:
 				addBankCustomer();
 				break;
-
+			case 4:
+				showBranchCustomer();
+				break;
+			case 5:
+				addCustomerMoney();
+				break;
 			case 6:
 				printActions();
 				break;
@@ -64,6 +69,9 @@ public class MainDriver {
 		System.out.println("0. Quit\n"
 				+ "1. Add Branch\n"
 				+ "2. Show Branch\n"
+				+ "3. Add Customer\n"
+				+ "4. Show Branch Customers\n"
+				+ "5. Deposite money for Customers\n"
 				+ "6. show different options\n");
 	}
 
@@ -81,5 +89,22 @@ public class MainDriver {
 		myBank.addBranchCustomer(branchName,
 				customerName, amount);
 	}
-
+	
+	public static void showBranchCustomer() {
+		//System.out.println(myBank);
+		System.out.println(
+				"Choose Branch to view customer list");
+		myBank.showBranches();
+		System.out.println("which Branch ?");
+		String branchName = scanner.next();
+		myBank.showBranchCustomer(branchName);
+	}
+	public static void addCustomerMoney() {
+		showBranchCustomer();
+		System.out.println("Choose Customer Name : ");
+		String customerName = scanner.next();
+		System.out.println("Enter amount to add : ");
+		double amount = scanner.nextDouble();
+		myBank.addCustomerMoney(customerName, amount);
+	}
 }
